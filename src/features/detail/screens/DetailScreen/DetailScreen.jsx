@@ -66,7 +66,7 @@ const DetailScreen = () => {
     value: '',
     rating: null,
   });
-
+  console.log('detailProduct?.video_url', detailProduct?.video_url);
   useEffect(() => {
     if (id) {
       dispatch(getDetailProduct(id));
@@ -149,16 +149,15 @@ const DetailScreen = () => {
                               <span>Bài viết giới thiệu</span>
                             </TitleMain>
                             <Video>
-                        
-                        <ReactPlayer
-                          width="100%"
-                          className="video"
-                          height="100%"
-                          playing
-                          controls={true}
-                          url={detailProduct?.video_url}
-                        />
-                      </Video>
+                              <ReactPlayer
+                                width="100%"
+                                className="video"
+                                height="100%"
+                                playing
+                                controls={true}
+                                url={detailProduct?.video_url}
+                              />
+                            </Video>
                             <ContentPost
                               dangerouslySetInnerHTML={{
                                 __html: detailProduct?.description,
@@ -248,13 +247,22 @@ const DetailScreen = () => {
                           <span>Bài viết giới thiệu</span>
                         </TitleMain>
                         <Video>
-                        
+                          {/* <iframe
+                            src="https://drive.google.com/file/d/1KyStM_QNfWgaJrgAHFOwUGa8Dl6ZVxXW/view"
+                            width="650"
+                            height="400"
+                            frameborder="0"
+                            webkitallowfullscreen
+                            mozallowfullscreen
+                            allowfullscreen
+                          ></iframe> */}
                           <ReactPlayer
                             width="100%"
                             className="video"
                             height="100%"
                             playing
                             controls={true}
+                            volume
                             url={detailProduct?.video_url}
                           />
                         </Video>
